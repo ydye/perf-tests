@@ -129,7 +129,6 @@ func isNodeConditionUnset(node *corev1.Node, conditionType corev1.NodeConditionT
 // GetMasterName returns master node name.
 func GetMasterName(c clientset.Interface) (string, error) {
 	nodeList, err := client.ListNodes(c)
-	fmt.Println(nodeList)
 	if err != nil {
 		return "", err
 	}

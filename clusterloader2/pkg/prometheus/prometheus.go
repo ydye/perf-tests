@@ -120,6 +120,7 @@ func NewPrometheusController(clusterLoaderConfig *config.ClusterLoaderConfig) (p
 	}
 	mapping["PROMETHEUS_SCRAPE_KUBELETS"] = clusterLoaderConfig.PrometheusConfig.ScrapeKubelets
 	pc.templateMapping = mapping
+	fmt.Println(pc)
 
 	return pc, nil
 }

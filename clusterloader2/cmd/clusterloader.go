@@ -114,6 +114,7 @@ func completeConfig(m *framework.MultiClientSet) error {
 		clusterLoaderConfig.ClusterConfig.Nodes = nodes
 		klog.Infof("ClusterConfig.Nodes set to %v", nodes)
 	}
+	fmt.println("nodes: ", clusterLoaderConfig.ClusterConfig)
 	if clusterLoaderConfig.ClusterConfig.MasterName == "" {
 		masterName, err := util.GetMasterName(m.GetClient())
 		if err == nil {
@@ -123,6 +124,7 @@ func completeConfig(m *framework.MultiClientSet) error {
 			klog.Errorf("Getting master name error: %v", err)
 		}
 	}
+	fmt.println("master name: ", clusterLoaderConfig.ClusterConfig)
 	if len(clusterLoaderConfig.ClusterConfig.MasterIPs) == 0 {
 		masterIPs, err := util.GetMasterIPs(m.GetClient(), corev1.NodeExternalIP)
 		if err == nil {
@@ -132,6 +134,7 @@ func completeConfig(m *framework.MultiClientSet) error {
 			klog.Errorf("Getting master external ip error: %v", err)
 		}
 	}
+	fmt.println("MasterIP: ", clusterLoaderConfig.ClusterConfig)
 	if len(clusterLoaderConfig.ClusterConfig.MasterInternalIPs) == 0 {
 		masterIPs, err := util.GetMasterIPs(m.GetClient(), corev1.NodeInternalIP)
 		if err == nil {
@@ -141,6 +144,7 @@ func completeConfig(m *framework.MultiClientSet) error {
 			klog.Errorf("Getting master internal ip error: %v", err)
 		}
 	}
+	fmt.println("MasterInternalIP: ", clusterLoaderConfig.ClusterConfig)
 	return nil
 }
 

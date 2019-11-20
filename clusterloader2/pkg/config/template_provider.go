@@ -214,6 +214,7 @@ func LoadTestOverrides(paths []string) (map[string]interface{}, error) {
 func GetMapping(clusterLoaderConfig *ClusterLoaderConfig) (map[string]interface{}, *errors.ErrorList) {
 	fmt.Println("1111111")
 	mapping, err := LoadTestOverrides(clusterLoaderConfig.TestScenario.OverridePaths)
+	fmt.Printf("%+v\n", mapping)
 	if err != nil {
 		return nil, errors.NewErrorList(fmt.Errorf("mapping creation error: %v", err))
 	}

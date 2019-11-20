@@ -277,7 +277,6 @@ func main() {
 		for i := range testConfigPaths {
 			clusterLoaderConfig.TestScenario.ConfigPath = testConfigPaths[i]
 			clusterLoaderConfig.TestScenario.OverridePaths = testOverridePaths
-			fmt.Println(clusterLoaderConfig.TestScenario)
 			runSingleTest(f, prometheusFramework, junitReporter, suiteSummary)
 		}
 	}
@@ -307,6 +306,7 @@ func runSingleTest(
 ) {
 	testId := getTestId(clusterLoaderConfig.TestScenario)
 	testStart := time.Now()
+	fmt.Println(testId, testStart)
 	specSummary := &ginkgotypes.SpecSummary{
 		ComponentTexts: []string{suiteSummary.SuiteDescription, testId},
 	}

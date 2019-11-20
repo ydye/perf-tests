@@ -261,10 +261,10 @@ func main() {
 		SuiteDescription:           "ClusterLoaderV2",
 		NumberOfSpecsThatWillBeRun: len(testConfigPaths),
 	}
-	fmt.Println(suiteSummary)
 	junitReporter := ginkgoreporters.NewJUnitReporter(path.Join(clusterLoaderConfig.ReportDir, "junit.xml"))
 	junitReporter.SpecSuiteWillBegin(ginkgoconfig.GinkgoConfig, suiteSummary)
 	testsStart := time.Now()
+	fmt.Println(testSuiteConfigPath)
 	if testSuiteConfigPath != "" {
 		testSuite, err := config.LoadTestSuite(testSuiteConfigPath)
 		if err != nil {

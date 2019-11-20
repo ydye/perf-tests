@@ -55,7 +55,9 @@ func RunTest(clusterFramework, prometheusFramework *framework.Framework, cluster
 	if errList != nil {
 		return errList
 	}
+	fmt.Println("Begin ctx")
 	ctx := CreateContext(clusterLoaderConfig, clusterFramework, prometheusFramework, state.NewState(), mapping)
+	fmt.Println("End ctx")
 	testConfigFilename := filepath.Base(clusterLoaderConfig.TestScenario.ConfigPath)
 	testConfig, err := ctx.GetTemplateProvider().TemplateToConfig(testConfigFilename, mapping)
 	if err != nil {

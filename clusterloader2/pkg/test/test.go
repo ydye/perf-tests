@@ -50,7 +50,7 @@ func RunTest(clusterFramework, prometheusFramework *framework.Framework, cluster
 	if Test == nil {
 		return errors.NewErrorList(fmt.Errorf("no Test installed"))
 	}
-	fmt.Println(clusterLoaderConfig)
+	fmt.Printf("%+v\n", clusterLoaderConfig)
 	mapping, errList := config.GetMapping(clusterLoaderConfig)
 	if errList != nil {
 		return errList

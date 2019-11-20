@@ -264,7 +264,6 @@ func main() {
 	junitReporter := ginkgoreporters.NewJUnitReporter(path.Join(clusterLoaderConfig.ReportDir, "junit.xml"))
 	junitReporter.SpecSuiteWillBegin(ginkgoconfig.GinkgoConfig, suiteSummary)
 	testsStart := time.Now()
-	fmt.Println(testSuiteConfigPath)
 	if testSuiteConfigPath != "" {
 		testSuite, err := config.LoadTestSuite(testSuiteConfigPath)
 		if err != nil {
@@ -278,6 +277,7 @@ func main() {
 		for i := range testConfigPaths {
 			clusterLoaderConfig.TestScenario.ConfigPath = testConfigPaths[i]
 			clusterLoaderConfig.TestScenario.OverridePaths = testOverridePaths
+			fmt.Println(clusterLoaderConfig.TestScenario)
 			runSingleTest(f, prometheusFramework, junitReporter, suiteSummary)
 		}
 	}

@@ -144,7 +144,7 @@ func completeConfig(m *framework.MultiClientSet) error {
 			klog.Errorf("Getting master internal ip error: %v", err)
 		}
 	}
-	fmt.Println("MasterInternalIP: ", clusterLoaderConfig.ClusterConfig.MasterInternalIP)
+	fmt.Println("MasterInternalIP: ", clusterLoaderConfig.ClusterConfig.MasterInternalIPs)
 	return nil
 }
 

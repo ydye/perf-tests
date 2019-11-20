@@ -193,6 +193,7 @@ func validateTestSuite(suite api.TestSuite) error {
 // LoadTestOverrides returns mapping from file specified by the given paths.
 func LoadTestOverrides(paths []string) (map[string]interface{}, error) {
 	mapping := make(map[string]interface{})
+	fmt.Println(paths)
 	for _, path := range paths {
 		bin, err := ioutil.ReadFile(path)
 		if err != nil {

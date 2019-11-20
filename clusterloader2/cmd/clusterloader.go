@@ -306,11 +306,11 @@ func runSingleTest(
 ) {
 	testId := getTestId(clusterLoaderConfig.TestScenario)
 	testStart := time.Now()
-	fmt.Println(testId, testStart)
 	specSummary := &ginkgotypes.SpecSummary{
 		ComponentTexts: []string{suiteSummary.SuiteDescription, testId},
 	}
 	printTestStart(testId)
+	fmt.Println("begin")
 	if errList := test.RunTest(f, prometheusFramework, &clusterLoaderConfig); !errList.IsEmpty() {
 		suiteSummary.NumberOfFailedSpecs++
 		specSummary.State = ginkgotypes.SpecStateFailed
